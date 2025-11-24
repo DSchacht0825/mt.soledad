@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #111827;
+    background-color: white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+  }
+
+  /* Hide ALL default video controls and play buttons */
+  video::-webkit-media-controls {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+  video::-webkit-media-controls-enclosure {
+    display: none !important;
+  }
+  video::-webkit-media-controls-panel {
+    display: none !important;
+  }
+  video::-webkit-media-controls-play-button {
+    display: none !important;
+    opacity: 0 !important;
+  }
+  video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none !important;
+    opacity: 0 !important;
+  }
+  video::-webkit-media-controls-overlay-play-button {
+    display: none !important;
+    opacity: 0 !important;
+  }
+  video::-moz-media-controls {
+    display: none !important;
+  }
+  video::--internal-media-controls-overlay-cast-button {
+    display: none !important;
+  }
+
+  /* Force video to have no controls */
+  video {
+    -webkit-media-controls-panel: none !important;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    padding: 0.75rem 1.5rem;
+    background-color: #00527A;
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+
+  .btn-primary:hover {
+    background-color: #003D5B;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    transform: translateY(-2px);
+  }
+
+  .btn-accent {
+    padding: 0.75rem 1.5rem;
+    background-color: #FEE59A;
+    color: #111827;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+
+  .btn-accent:hover {
+    background-color: #F5D679;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    transform: translateY(-2px);
+  }
+
+  .section-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4rem 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .card:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    transform: translateY(-4px);
+  }
+}
