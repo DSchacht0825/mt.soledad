@@ -11,6 +11,15 @@ const Events = () => {
 
   const upcomingEvents = [
     {
+      title: "Men's Bible Study",
+      day: 'Saturday',
+      time: '8:00 AM',
+      location: 'Fellowship Hall',
+      recurring: 'Weekly',
+      color: 'bg-indigo-500',
+      description: 'Men gather for fellowship, coffee, and in-depth Bible study. All men are welcome!',
+    },
+    {
       title: 'Discovery Bible Study',
       day: 'Sunday',
       time: '9:00 AM - 9:50 AM',
