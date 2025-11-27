@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const YOUTUBE_API_KEY = 'AIzaSyA7OY1WiHptPQs2Fjv95CEO71tXyVKNBRE';
+const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 const CHANNEL_ID = 'UC7Thm-75d3F4P6HuFZ-xxAQ';
 
 const Home = () => {
