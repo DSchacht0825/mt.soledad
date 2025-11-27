@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import Calendar from 'react-calendar';
@@ -9,10 +9,22 @@ const Events = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [date, setDate] = useState(new Date());
 
+  // Map day names to day numbers (0 = Sunday, 1 = Monday, etc.)
+  const dayMap = {
+    'Sunday': 0,
+    'Monday': 1,
+    'Tuesday': 2,
+    'Wednesday': 3,
+    'Thursday': 4,
+    'Friday': 5,
+    'Saturday': 6,
+  };
+
   const upcomingEvents = [
     {
       title: "Men's Bible Study",
       day: 'Saturday',
+      dayNum: 6,
       time: '8:00 AM',
       location: 'Fellowship Hall',
       recurring: 'Weekly',
@@ -22,6 +34,7 @@ const Events = () => {
     {
       title: 'Discovery Bible Study',
       day: 'Sunday',
+      dayNum: 0,
       time: '9:00 AM - 9:50 AM',
       location: 'Worship Center',
       recurring: 'Weekly',
@@ -31,6 +44,7 @@ const Events = () => {
     {
       title: 'Sunday Worship Service',
       day: 'Sunday',
+      dayNum: 0,
       time: '10:00 AM - 11:00 AM',
       location: 'Main Sanctuary',
       recurring: 'Weekly',
@@ -40,6 +54,7 @@ const Events = () => {
     {
       title: 'Monday Night Small Group',
       day: 'Monday',
+      dayNum: 1,
       time: '5:30 PM - 7:00 PM',
       location: 'Sunset Room',
       recurring: 'Weekly',
@@ -49,6 +64,7 @@ const Events = () => {
     {
       title: 'Prayer Group',
       day: 'Wednesday',
+      dayNum: 3,
       time: '6:00 PM - 8:00 PM',
       location: 'Youth Room',
       recurring: 'Weekly',
@@ -56,6 +72,26 @@ const Events = () => {
       description: 'Gather with others to intercede for our church, community, and world. All are welcome!',
     },
   ];
+
+  // Get events for selected date
+  const getEventsForDate = (selectedDate) => {
+    const dayOfWeek = selectedDate.getDay();
+    return upcomingEvents.filter(event => event.dayNum === dayOfWeek);
+  };
+
+  const selectedDateEvents = getEventsForDate(date);
+
+  // Check if a date has events (for calendar tile styling)
+  const tileClassName = ({ date: tileDate, view }) => {
+    if (view === 'month') {
+      const dayOfWeek = tileDate.getDay();
+      const hasEvents = upcomingEvents.some(event => event.dayNum === dayOfWeek);
+      if (hasEvents) {
+        return 'has-events';
+      }
+    }
+    return null;
+  };
 
   return (
     <>
@@ -135,8 +171,29 @@ const Events = () => {
                   text-transform: uppercase;
                   font-size: 0.9em;
                 }
+                .react-calendar__tile.has-events {
+                  position: relative;
+                }
+                .react-calendar__tile.has-events::after {
+                  content: '';
+                  position: absolute;
+                  bottom: 6px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 6px;
+                  height: 6px;
+                  background-color: #00527A;
+                  border-radius: 50%;
+                }
+                .react-calendar__tile--active.has-events::after {
+                  background-color: #FEE59A;
+                }
               `}</style>
-              <Calendar onChange={setDate} value={date} />
+              <Calendar
+                onChange={setDate}
+                value={date}
+                tileClassName={tileClassName}
+              />
             </div>
           </motion.div>
 
@@ -148,20 +205,76 @@ const Events = () => {
             className="card p-8 bg-gradient-to-br from-primary/5 to-primary-light/5"
           >
             <h3 className="text-2xl font-bold text-primary mb-4">
-              Selected Date
-            </h3>
-            <p className="text-4xl font-bold text-gray-900 mb-6">
               {date.toLocaleDateString('en-US', {
                 weekday: 'long',
-                year: 'numeric',
                 month: 'long',
                 day: 'numeric'
               })}
-            </p>
-            <p className="text-gray-600">
-              Check our weekly schedule below for regular events, or contact us for
-              information about special upcoming events and activities.
-            </p>
+            </h3>
+
+            <AnimatePresence mode="wait">
+              {selectedDateEvents.length > 0 ? (
+                <motion.div
+                  key={date.toDateString()}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="space-y-4"
+                >
+                  {selectedDateEvents.map((event, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="bg-white rounded-xl p-4 shadow-md border-l-4"
+                      style={{ borderColor: event.color.replace('bg-', '').includes('primary') ? '#00527A' : undefined }}
+                    >
+                      <div className={`w-3 h-3 ${event.color} rounded-full absolute -left-1.5 top-4`}></div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-1">
+                        {event.title}
+                      </h4>
+                      <p className="text-sm text-gray-600 mb-2">
+                        {event.description}
+                      </p>
+                      <div className="flex flex-wrap gap-3 text-xs text-gray-500">
+                        <span className="flex items-center">
+                          <svg className="w-4 h-4 mr-1 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {event.time}
+                        </span>
+                        <span className="flex items-center">
+                          <svg className="w-4 h-4 mr-1 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          {event.location}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="no-events"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-center py-8"
+                >
+                  <div className="text-6xl mb-4">📅</div>
+                  <p className="text-gray-600 mb-2">
+                    No scheduled events on this day.
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    Check out our weekly schedule below or contact us for special events.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
 
@@ -266,7 +379,7 @@ const Events = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center px-8 py-4 bg-white text-primary rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+            className="inline-flex items-center px-8 py-4 bg-accent text-gray-900 rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-accent-dark transition-all duration-300"
           >
             <svg
               className="w-6 h-6 mr-2"
