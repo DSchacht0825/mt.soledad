@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
-const CHANNEL_ID = 'UC7Thm-75d3F4P6HuFZ-xxAQ';
+const CHANNEL_ID = 'UCEUmim46Wpoo759TbtwRODg';
 
 const Home = () => {
   const videoRef = useRef(null);
@@ -306,7 +306,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://www.youtube.com/channel/UC7Thm-75d3F4P6HuFZ-xxAQ/live"
+              href="https://www.youtube.com/@mountsoledadpresbyterianchurch/live"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 shadow-md hover:shadow-lg"
@@ -318,7 +318,7 @@ const Home = () => {
               Watch Live
             </a>
             <a
-              href="https://www.youtube.com/channel/UC7Thm-75d3F4P6HuFZ-xxAQ/videos"
+              href="https://www.youtube.com/@mountsoledadpresbyterianchurch/videos"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-black transition-all duration-300 shadow-md hover:shadow-lg"
