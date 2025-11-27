@@ -112,8 +112,109 @@ const About = () => {
         </div>
       </section>
 
+      {/* Mission Statement */}
+      <section className="section-container bg-white">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+            Our Mission
+          </h2>
+          <p className="text-2xl md:text-3xl font-semibold text-primary-light mb-8 italic">
+            Rooted in grace, Moved to mission, Open hearted to all
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed">
+            We are a welcoming and inclusive community, centered in God's grace. We extend Jesus's love,
+            acceptance, and compassion to everyone. No matter who you are, where you've been, or what
+            you've done, you are God's beloved.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Our Values */}
+      <section className="section-container bg-gray-50">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Our Values
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-primary mb-4 text-center">
+              A Welcoming Community
+            </h3>
+            <p className="text-gray-600 leading-relaxed text-center">
+              We gather in worship and serve together as an encouraging, generous, multigenerational community.
+              We welcome all who are curious and open to Christ's love, whatever your life circumstances or spiritual background.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-primary mb-4 text-center">
+              Spiritual Growth
+            </h3>
+            <p className="text-gray-600 leading-relaxed text-center">
+              We are called by God to grow in faith as disciples of Jesus through worship, fellowship, study, and prayer.
+              We emphasize humility, reflection, and contemplation to nurture empathy and a profound sense of connection with God and all of humanity.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-primary mb-4 text-center">
+              Christ-Centered Mentorship
+            </h3>
+            <p className="text-gray-600 leading-relaxed text-center">
+              We invest in meaningful relationships with young people, providing guidance and encouragement to live
+              authentically and faithfully through an enduring personal relationship with Jesus.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* What to Expect Section */}
-      <section className="section-container bg-gray-50" ref={ref}>
+      <section className="section-container bg-white" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

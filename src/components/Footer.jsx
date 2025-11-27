@@ -35,9 +35,11 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-4">
               Mount Soledad<br />Presbyterian Church
             </h3>
-            <p className="text-blue-100 mb-6 leading-relaxed">
-              Inviting, equipping, and sending for more people to experience
-              life-transforming relationships with Jesus.
+            <p className="text-blue-100 mb-2 leading-relaxed italic">
+              Rooted in grace, Moved to mission, Open hearted to all
+            </p>
+            <p className="text-blue-100/80 text-sm mb-6">
+              No matter who you are, where you've been, or what you've done, you are God's beloved.
             </p>
             <div className="flex space-x-4">
               <motion.a
