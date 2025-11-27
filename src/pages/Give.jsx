@@ -14,15 +14,9 @@ const Give = () => {
       features: ['Secure & encrypted', 'Recurring options', 'Instant confirmation'],
     },
     {
-      icon: '📱',
-      title: 'Mobile App',
-      description: 'Download our church app to give on the go, manage your giving history, and set up recurring donations.',
-      features: ['iOS & Android', 'Easy management', 'Quick access'],
-    },
-    {
       icon: '📧',
       title: 'Mail a Check',
-      description: 'Send your check made payable to Mount Soledad Presbyterian Church to our mailing address.',
+      description: 'Send your check made payable to Mount Soledad Presbyterian Church to: 6551 Soledad Mountain Rd., La Jolla, CA 92037',
       features: ['Tax-deductible', 'Traditional method', 'Secure processing'],
     },
     {
@@ -226,13 +220,16 @@ const Give = () => {
                 <span>Tax-deductible contributions</span>
               </li>
             </ul>
-            <motion.button
+            <motion.a
+              href="https://mountsoledadchurch.churchcenter.com/giving"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 bg-accent text-gray-900 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-accent-dark transition-all duration-300"
+              className="inline-block px-10 py-4 bg-accent text-gray-900 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-accent-dark transition-all duration-300"
             >
               Give Securely Online
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
       </section>

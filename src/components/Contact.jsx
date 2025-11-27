@@ -155,13 +155,16 @@ const Contact = () => {
               <span>Tax-deductible contributions</span>
             </li>
           </ul>
-          <motion.button
+          <motion.a
+            href="https://mountsoledadchurch.churchcenter.com/giving"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full px-8 py-4 bg-accent text-gray-900 rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-accent-dark transition-all duration-300"
+            className="block w-full px-8 py-4 bg-accent text-gray-900 rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-accent-dark transition-all duration-300 text-center"
           >
             Give Now
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>
