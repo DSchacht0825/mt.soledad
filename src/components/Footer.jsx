@@ -15,7 +15,7 @@ const Footer = () => {
 
   const ministries = [
     { name: 'Children', href: '/ministries' },
-    { name: 'Youth (SURF)', href: '/ministries' },
+    { name: 'Youth', href: '/ministries' },
     { name: 'Small Groups', href: '/ministries' },
     { name: 'Prayer', href: '/ministries' },
   ];

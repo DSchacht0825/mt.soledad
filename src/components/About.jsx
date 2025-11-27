@@ -114,10 +114,10 @@ const About = () => {
 
           <div className="bg-gradient-to-br from-primary-light/10 to-primary/10 rounded-xl p-6">
             <h4 className="text-xl font-bold text-primary mb-3">
-              SURF Youth Group
+              Mount Soledad Youth
             </h4>
             <p className="text-gray-700 leading-relaxed">
-              Our SURF group for middle and high schoolers is led by Carl Ogden.
+              Our youth group for middle and high schoolers is led by Carl Ogden.
               A dynamic program designed to help teenagers grow in their faith.
             </p>
           </div>

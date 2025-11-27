@@ -329,7 +329,7 @@ const About = () => {
 
             <div className="bg-gradient-to-br from-primary-light/10 to-primary/10 rounded-xl p-6">
               <h3 className="text-xl font-bold text-primary mb-3">
-                SURF Youth Ministry
+                Mount Soledad Youth
               </h3>
               <p className="text-gray-700 leading-relaxed">
                 Our middle and high school ministry, led by Carl Ogden, provides a

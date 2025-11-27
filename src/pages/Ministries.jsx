@@ -20,9 +20,9 @@ const Ministries = () => {
     },
     {
       title: 'Youth',
-      subtitle: 'SURF Group',
+      subtitle: 'Mount Soledad Youth',
       description:
-        'SURF (Students United in Radical Faith) is our middle and high school ministry led by Carl Ogden. We create a safe, welcoming space where teenagers can ask tough questions, build authentic friendships, serve together, and experience God in powerful ways. Through weekly gatherings, special events, and service projects, we help students navigate their faith journey.',
+        'Mount Soledad Youth is our middle and high school ministry led by Carl Ogden. We create a safe, welcoming space where teenagers can ask tough questions, build authentic friendships, serve together, and experience God in powerful ways. Through weekly gatherings, special events, and service projects, we help students navigate their faith journey.',
       image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=2070',
       color: 'from-purple-500 to-pink-500',
       schedule: 'Check calendar for current schedule',

@@ -17,7 +17,7 @@ const Ministries = () => {
     },
     {
       title: 'Youth',
-      subtitle: 'SURF Group',
+      subtitle: 'Mount Soledad Youth',
       description:
         'Our middle and high school ministry, led by Carl Ogden, creates a space where teenagers can build authentic friendships and grow in their relationship with Christ.',
       image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=2070',

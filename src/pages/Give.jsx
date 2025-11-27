@@ -42,7 +42,7 @@ const Give = () => {
     },
     {
       title: 'Children & Youth',
-      description: 'Invest in the next generation through Kingdom Kids, SURF youth ministry, and family programs.',
+      description: 'Invest in the next generation through Kingdom Kids, Mount Soledad Youth ministry, and family programs.',
       icon: '👨‍👩‍👧‍👦',
       color: 'from-purple-500 to-pink-500',
     },
