@@ -1,9 +1,47 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+const YOUTUBE_API_KEY = 'AIzaSyA7OY1WiHptPQs2Fjv95CEO71tXyVKNBRE';
+const CHANNEL_ID = 'UC7Thm-75d3F4P6HuFZ-xxAQ';
+
 const Home = () => {
   const videoRef = useRef(null);
+  const [latestVideoId, setLatestVideoId] = useState(null);
+  const [isLive, setIsLive] = useState(false);
+
+  // Fetch latest video from YouTube channel
+  useEffect(() => {
+    const fetchLatestVideo = async () => {
+      try {
+        // First check for live streams
+        const liveResponse = await fetch(
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&eventType=live&type=video&key=${YOUTUBE_API_KEY}`
+        );
+        const liveData = await liveResponse.json();
+
+        if (liveData.items && liveData.items.length > 0) {
+          setLatestVideoId(liveData.items[0].id.videoId);
+          setIsLive(true);
+          return;
+        }
+
+        // If no live stream, get latest upload
+        const response = await fetch(
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&order=date&maxResults=1&type=video&key=${YOUTUBE_API_KEY}`
+        );
+        const data = await response.json();
+
+        if (data.items && data.items.length > 0) {
+          setLatestVideoId(data.items[0].id.videoId);
+        }
+      } catch (error) {
+        console.error('Error fetching YouTube video:', error);
+      }
+    };
+
+    fetchLatestVideo();
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -130,6 +168,22 @@ const Home = () => {
         </motion.div>
       </section>
 
+      {/* Santa Breakfast Event */}
+      <section className="section-container bg-gray-50">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto"
+        >
+          <img
+            src="/santa-breakfast-2025.jpg"
+            alt="Breakfast with Santa - December 14, 2024"
+            className="w-full rounded-2xl shadow-2xl"
+          />
+        </motion.div>
+      </section>
+
       {/* Quick Info Section */}
       <section className="section-container bg-gray-50">
         <div className="grid md:grid-cols-3 gap-8">
@@ -226,28 +280,53 @@ const Home = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <div className="aspect-video bg-gray-200 rounded-2xl overflow-hidden shadow-2xl mb-8">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="Latest Sermon"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+          {/* YouTube Video Embed - Auto-fetches latest */}
+          <div className="aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl mb-8 relative">
+            {isLive && (
+              <div className="absolute top-4 left-4 z-10 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-2">
+                <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                LIVE NOW
+              </div>
+            )}
+            {latestVideoId ? (
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${latestVideoId}`}
+                title="Mount Soledad Presbyterian Church - Latest Sermon"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-white">
+                <div className="animate-pulse">Loading latest sermon...</div>
+              </div>
+            )}
           </div>
-          <div className="text-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://www.youtube.com/@mountsoledad"
+              href="https://www.youtube.com/channel/UC7Thm-75d3F4P6HuFZ-xxAQ/live"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-md hover:shadow-lg"
+              className="inline-flex items-center justify-center px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 shadow-md hover:shadow-lg"
+            >
+              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" opacity="0.3"/>
+              </svg>
+              Watch Live
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UC7Thm-75d3F4P6HuFZ-xxAQ/videos"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-black transition-all duration-300 shadow-md hover:shadow-lg"
             >
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
               </svg>
-              Watch More Sermons
+              All Sermons
             </a>
           </div>
         </motion.div>
