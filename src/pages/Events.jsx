@@ -96,8 +96,13 @@ const Events = () => {
   return (
     <>
       {/* Page Hero */}
-      <section className="relative py-32 bg-gradient-to-br from-primary to-primary-light text-white">
-        <div className="section-container text-center">
+      <section className="relative py-32 text-white overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/mt.soledad.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-primary/80" />
+        <div className="section-container text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
