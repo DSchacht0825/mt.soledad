@@ -9,7 +9,7 @@ const About = () => {
     {
       name: 'Markus',
       role: 'Lead Pastor',
-      image: '/markus.jpg',
+      image: '/Markus.jpg',
       bio: 'Markus has been serving as Lead Pastor at Mount Soledad Presbyterian Church, bringing a passion for biblical teaching and shepherding the congregation. His heart is to help people encounter the transforming love of Jesus and grow as disciples.',
     },
     {
