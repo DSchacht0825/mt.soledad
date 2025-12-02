@@ -1,11 +1,39 @@
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useRef, useState } from 'react';
 import { useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [selectedStaff, setSelectedStaff] = useState(null);
+
+  const staffMembers = [
+    {
+      name: 'Markus',
+      role: 'Lead Pastor',
+      image: '/Markus.jpg',
+      bio: 'Markus has been serving as Lead Pastor at Mount Soledad Presbyterian Church, bringing a passion for biblical teaching and shepherding the congregation. His heart is to help people encounter the transforming love of Jesus and grow as disciples.',
+    },
+    {
+      name: 'Derek',
+      role: 'Worship Director',
+      image: '/Derek.jpg',
+      bio: 'Derek leads our worship ministry with a heart for creating meaningful worship experiences. He is passionate about helping the congregation connect with God through music and creating space for authentic worship.',
+    },
+    {
+      name: 'Carl',
+      role: "Children's Director",
+      image: '/Carl.jpg',
+      bio: 'Carl oversees our children\'s ministry programs, including Kingdom Kids. He is dedicated to helping children discover God\'s love through engaging Bible stories, creative activities, and meaningful relationships.',
+    },
+    {
+      name: 'Krista',
+      role: 'Administrator',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400',
+      bio: 'Krista serves as our church administrator, ensuring the smooth operation of our ministry. She coordinates events, manages communications, and supports the staff and congregation with care and efficiency.',
+    },
+  ];
 
   const features = [
     {
@@ -213,8 +241,100 @@ const About = () => {
         </div>
       </section>
 
+      {/* Leadership Section */}
+      <section className="section-container bg-white">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Our Leadership
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Meet the dedicated team serving our church family
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {staffMembers.map((staff, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
+            >
+              <div className="h-64 overflow-hidden">
+                <img
+                  src={staff.image}
+                  alt={staff.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-bold text-primary mb-1">{staff.name}</h3>
+                <p className="text-gray-600 mb-4">{staff.role}</p>
+                <motion.button
+                  onClick={() => setSelectedStaff(staff)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-4 py-2 bg-primary text-white rounded-lg font-semibold text-sm hover:bg-primary-dark transition-colors"
+                >
+                  View Bio
+                </motion.button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Bio Modal */}
+      <AnimatePresence>
+        {selectedStaff && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedStaff(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="h-64 overflow-hidden">
+                <img
+                  src={selectedStaff.image}
+                  alt={selectedStaff.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-primary mb-1">{selectedStaff.name}</h3>
+                <p className="text-primary-light font-semibold mb-4">{selectedStaff.role}</p>
+                <p className="text-gray-600 leading-relaxed mb-6">{selectedStaff.bio}</p>
+                <motion.button
+                  onClick={() => setSelectedStaff(null)}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full px-4 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+                >
+                  Close
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* What to Expect Section */}
-      <section className="section-container bg-white" ref={ref}>
+      <section className="section-container bg-gray-50" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -363,46 +483,6 @@ const About = () => {
         </motion.div>
       </section>
 
-      {/* Staff Section */}
-      <section className="section-container bg-white">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            Our Leadership
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Meet the dedicated team serving our church family
-          </p>
-        </motion.div>
-
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="card p-12"
-          >
-            <div className="w-32 h-32 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-5xl">⛪</span>
-            </div>
-            <h3 className="text-2xl font-bold text-primary mb-2">
-              Pastoral Team
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Our pastoral staff is committed to shepherding our congregation with
-              wisdom, compassion, and biblical teaching.
-            </p>
-            <Link to="/contact" className="text-primary font-semibold hover:text-primary-light transition-colors">
-              Get in Touch →
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="section-container bg-gradient-to-r from-primary to-primary-light text-white">
         <div className="text-center">
@@ -426,7 +506,7 @@ const About = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-white/20 backdrop-blur-sm text-white border-2 border-white rounded-lg font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300"
+                className="px-8 py-4 bg-gray-900 text-white rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-black transition-all duration-300"
               >
                 View Events
               </motion.button>
