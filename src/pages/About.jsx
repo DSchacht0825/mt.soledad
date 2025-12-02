@@ -20,13 +20,13 @@ const About = () => {
     },
     {
       name: 'Carl',
-      role: "Children's Director",
+      role: 'Christian Education Director',
       image: '/Carl.jpg',
       bio: 'Carl oversees our children\'s ministry programs, including Kingdom Kids. He is dedicated to helping children discover God\'s love through engaging Bible stories, creative activities, and meaningful relationships.',
     },
     {
       name: 'Krista',
-      role: 'Administrator',
+      role: 'Church Administrator',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400',
       bio: 'Krista serves as our church administrator, ensuring the smooth operation of our ministry. She coordinates events, manages communications, and supports the staff and congregation with care and efficiency.',
     },
