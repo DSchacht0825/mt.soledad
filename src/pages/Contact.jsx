@@ -1,10 +1,6 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 
 const Contact = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const contactInfo = [
     {
@@ -83,15 +79,12 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="section-container bg-gray-50" ref={ref}>
+      <section className="section-container bg-gray-50">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {contactInfo.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="card p-6 text-center hover:scale-105"
+              className="card p-6 text-center hover:shadow-xl transition-shadow duration-300"
             >
               <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary rounded-full mb-4">
                 {item.icon}
@@ -110,7 +103,7 @@ const Contact = () => {
               >
                 {item.linkText} →
               </a>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -119,12 +112,7 @@ const Contact = () => {
       <section className="section-container bg-white">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Map */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="rounded-xl overflow-hidden shadow-lg h-96"
-          >
+          <div className="rounded-xl overflow-hidden shadow-lg h-96">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.1234567890!2d-117.25!3d32.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDUxJzAwLjAiTiAxMTfCsDE1JzAwLjAiVw!5e0!3m2!1sen!2sus!4v1234567890"
               width="100%"
@@ -135,15 +123,10 @@ const Contact = () => {
               referrerPolicy="no-referrer-when-downgrade"
               title="Mount Soledad Presbyterian Church Location"
             ></iframe>
-          </motion.div>
+          </div>
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="card p-8"
-          >
+          <div className="card p-8">
             <h2 className="text-3xl font-bold text-primary mb-6">
               Send Us a Message
             </h2>
@@ -212,27 +195,20 @@ const Contact = () => {
                   placeholder="Your message..."
                 ></textarea>
               </div>
-              <motion.button
+              <button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full btn-primary"
+                className="w-full btn-primary hover:scale-[1.02] transition-transform duration-200"
               >
                 Send Message
-              </motion.button>
+              </button>
             </form>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Visit Info Section */}
       <section className="section-container bg-gradient-to-br from-gray-50 to-white">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
-        >
+        <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-primary mb-6">
             Planning Your First Visit?
           </h2>
@@ -240,8 +216,8 @@ const Contact = () => {
             We're excited to welcome you! Here's what to expect when you arrive:
           </p>
           <div className="grid md:grid-cols-3 gap-8 text-left">
-            <div className="bg-white rounded-xl p-6 shadow-md group hover:shadow-xl transition-shadow duration-300">
-              <div className="w-14 h-14 mb-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+              <div className="w-14 h-14 mb-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                 </svg>
@@ -251,8 +227,8 @@ const Contact = () => {
                 Free parking is available in our lot. Arrive 10-15 minutes early for the best spots.
               </p>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-md group hover:shadow-xl transition-shadow duration-300">
-              <div className="w-14 h-14 mb-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+              <div className="w-14 h-14 mb-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
                 </svg>
@@ -262,8 +238,8 @@ const Contact = () => {
                 Our greeters will welcome you at the door and help you find your way.
               </p>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-md group hover:shadow-xl transition-shadow duration-300">
-              <div className="w-14 h-14 mb-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+              <div className="w-14 h-14 mb-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -274,7 +250,7 @@ const Contact = () => {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
     </>
   );

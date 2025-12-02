@@ -170,30 +170,19 @@ const Home = () => {
 
       {/* Santa Breakfast Event */}
       <section className="section-container bg-gray-50">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto"
-        >
+        <div className="max-w-2xl mx-auto">
           <img
             src="/santa-breakfast-2025.jpg"
             alt="Breakfast with Santa - December 14, 2024"
             className="w-full rounded-2xl shadow-2xl"
           />
-        </motion.div>
+        </div>
       </section>
 
       {/* Quick Info Section */}
       <section className="section-container bg-gray-50">
         <div className="grid md:grid-cols-3 gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="card p-8 text-center group hover:shadow-xl transition-shadow duration-300"
-          >
+          <div className="card p-8 text-center group hover:shadow-xl transition-shadow duration-300">
             <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-primary-light rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -208,15 +197,9 @@ const Home = () => {
             <Link to="/about" className="text-primary font-semibold hover:text-primary-light transition-colors">
               Learn More →
             </Link>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="card p-8 text-center group hover:shadow-xl transition-shadow duration-300"
-          >
+          <div className="card p-8 text-center group hover:shadow-xl transition-shadow duration-300">
             <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -231,15 +214,9 @@ const Home = () => {
             <Link to="/ministries" className="text-primary font-semibold hover:text-primary-light transition-colors">
               Explore Ministries →
             </Link>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="card p-8 text-center group hover:shadow-xl transition-shadow duration-300"
-          >
+          <div className="card p-8 text-center group hover:shadow-xl transition-shadow duration-300">
             <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <svg className="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -254,32 +231,22 @@ const Home = () => {
             <Link to="/give" className="text-primary font-semibold hover:text-primary-light transition-colors">
               Give Now →
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Latest Sermon Section */}
       <section className="section-container bg-white">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
             This Week's Message
           </h2>
           <p className="text-xl text-gray-600">
             Join us online or in person for inspiring worship and biblical teaching
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
-        >
+        <div className="max-w-4xl mx-auto">
           {/* YouTube Video Embed - Auto-fetches latest */}
           <div className="aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl mb-8 relative">
             {isLive && (
@@ -329,7 +296,7 @@ const Home = () => {
               All Sermons
             </a>
           </div>
-        </motion.div>
+        </div>
       </section>
     </>
   );

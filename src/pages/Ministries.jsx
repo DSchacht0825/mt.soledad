@@ -1,11 +1,7 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const Ministries = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const ministries = [
     {
@@ -79,14 +75,11 @@ const Ministries = () => {
       </section>
 
       {/* Ministries Grid */}
-      <section className="section-container bg-white" ref={ref}>
+      <section className="section-container bg-white">
         <div className="space-y-16">
           {ministries.map((ministry, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
               className={`grid lg:grid-cols-2 gap-8 items-center ${
                 index % 2 === 1 ? 'lg:flex-row-reverse' : ''
               }`}
@@ -154,16 +147,12 @@ const Ministries = () => {
                   </div>
                 </div>
                 <Link to="/contact">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn-primary"
-                  >
+                  <button className="btn-primary hover:scale-105 transition-transform duration-200">
                     Get Involved
-                  </motion.button>
+                  </button>
                 </Link>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -180,13 +169,9 @@ const Ministries = () => {
             build community, there's a place for you.
           </p>
           <Link to="/contact">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-accent text-gray-900 rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-accent-dark transition-all duration-300"
-            >
+            <button className="px-8 py-4 bg-accent text-gray-900 rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-accent-dark hover:scale-105 transition-all duration-300">
               Contact Us to Learn More
-            </motion.button>
+            </button>
           </Link>
         </div>
       </section>

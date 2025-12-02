@@ -1,10 +1,6 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 
 const Give = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const givingOptions = [
     {
@@ -84,12 +80,8 @@ const Give = () => {
       </section>
 
       {/* Why Give Section */}
-      <section className="section-container bg-white" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
+      <section className="section-container bg-white">
+        <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl font-bold text-primary mb-6">
             Why We Give
           </h2>
@@ -105,25 +97,17 @@ const Give = () => {
             </p>
             <p className="text-primary font-semibold mt-3">— 2 Corinthians 9:7</p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Impact Areas */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2 }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <h3 className="text-3xl font-bold text-primary mb-8 text-center">
             Your Impact
           </h3>
           <div className="grid md:grid-cols-2 gap-8">
             {impactAreas.map((area, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.3 + index * 0.1 }}
                 className="card overflow-hidden"
               >
                 <div className={`h-2 bg-gradient-to-r ${area.color}`}></div>
@@ -136,37 +120,28 @@ const Give = () => {
                     {area.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Giving Options */}
       <section className="section-container bg-gray-50">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-primary mb-4">
             Ways to Give
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Choose the giving method that works best for you
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {givingOptions.map((option, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="card p-6 text-center hover:scale-105"
+              className="card p-6 text-center hover:shadow-xl transition-shadow duration-300"
             >
               <div className="text-6xl mb-4">{option.icon}</div>
               <h3 className="text-xl font-bold text-primary mb-3">
@@ -185,7 +160,7 @@ const Give = () => {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -193,12 +168,7 @@ const Give = () => {
       {/* Online Giving Section */}
       <section className="section-container bg-white">
         <div className="max-w-2xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="card p-8 bg-gradient-to-br from-primary to-primary-light text-white text-center"
-          >
+          <div className="card p-8 bg-gradient-to-br from-primary to-primary-light text-white text-center">
             <h2 className="text-3xl font-bold mb-4">
               Give Online Now
             </h2>
@@ -225,28 +195,21 @@ const Give = () => {
                 <span>Tax-deductible contributions</span>
               </li>
             </ul>
-            <motion.a
+            <a
               href="https://mountsoledadchurch.churchcenter.com/giving"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block px-10 py-4 bg-accent text-gray-900 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-accent-dark transition-all duration-300"
+              className="inline-block px-10 py-4 bg-accent text-gray-900 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-accent-dark hover:scale-105 transition-all duration-300"
             >
               Give Securely Online
-            </motion.a>
-          </motion.div>
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Mailing Address */}
       <section className="section-container bg-gray-50">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-2xl mx-auto text-center card p-8"
-        >
+        <div className="max-w-2xl mx-auto text-center card p-8">
           <h3 className="text-2xl font-bold text-primary mb-4">
             Mail Your Gift
           </h3>
@@ -260,17 +223,12 @@ const Give = () => {
               La Jolla, CA 92037
             </p>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* FAQ Section */}
       <section className="section-container bg-white">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
-        >
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-primary mb-8 text-center">
             Questions About Giving
           </h2>
@@ -306,7 +264,7 @@ const Give = () => {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
     </>
   );

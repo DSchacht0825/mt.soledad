@@ -1,12 +1,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 const Events = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [date, setDate] = useState(new Date());
 
   // Map day names to day numbers (0 = Sunday, 1 = Monday, etc.)
@@ -122,15 +119,10 @@ const Events = () => {
       </section>
 
       {/* Calendar and Events Section */}
-      <section className="section-container bg-gradient-to-b from-gray-50 to-white" ref={ref}>
+      <section className="section-container bg-gradient-to-b from-gray-50 to-white">
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
           {/* Calendar */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="card p-8"
-          >
+          <div className="card p-8">
             <h2 className="text-3xl font-bold text-primary mb-6">Calendar</h2>
             <div className="calendar-container">
               <style>{`
@@ -200,15 +192,10 @@ const Events = () => {
                 tileClassName={tileClassName}
               />
             </div>
-          </motion.div>
+          </div>
 
           {/* Selected Date Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="card p-8 bg-gradient-to-br from-primary/5 to-primary-light/5"
-          >
+          <div className="card p-8 bg-gradient-to-br from-primary/5 to-primary-light/5">
             <h3 className="text-2xl font-bold text-primary mb-4">
               {date.toLocaleDateString('en-US', {
                 weekday: 'long',
@@ -280,26 +267,19 @@ const Events = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
 
         {/* Weekly Schedule */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <div>
           <h2 className="text-3xl font-bold text-primary mb-8 text-center">
             Weekly Schedule
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {upcomingEvents.map((event, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                className="card p-6 hover:shadow-2xl transition-all duration-300"
+                className="card p-6 hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="flex items-start space-x-4">
                   <div className={`${event.color} w-2 h-full rounded-full flex-shrink-0`}></div>
@@ -362,10 +342,10 @@ const Events = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Live Stream CTA */}
@@ -378,13 +358,11 @@ const Events = () => {
             Can't join us in person? We livestream our worship services every
             Sunday at 10:00 AM on YouTube. You can also watch past sermons anytime.
           </p>
-          <motion.a
+          <a
             href="https://www.youtube.com/@mountsoledad"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center px-8 py-4 bg-accent text-gray-900 rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-accent-dark transition-all duration-300"
+            className="inline-flex items-center px-8 py-4 bg-accent text-gray-900 rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-accent-dark hover:scale-105 transition-all duration-300"
           >
             <svg
               className="w-6 h-6 mr-2"
@@ -394,7 +372,7 @@ const Events = () => {
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
             </svg>
             Watch on YouTube
-          </motion.a>
+          </a>
         </div>
       </section>
     </>
