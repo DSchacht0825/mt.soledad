@@ -506,7 +506,7 @@ const About = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gray-900 text-white rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-black transition-all duration-300"
+                className="px-8 py-4 bg-primary text-white rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-primary-dark transition-all duration-300"
               >
                 View Events
               </motion.button>
