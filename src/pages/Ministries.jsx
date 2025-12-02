@@ -43,7 +43,7 @@ const Ministries = () => {
       subtitle: 'Interceding Together',
       description:
         "Our prayer team meets regularly to lift up our church family, community, and world in prayer. Whether you're looking for prayer support or want to join us in interceding for others, this ministry provides a powerful opportunity to see God work through prayer. We also offer confidential prayer after services.",
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887',
+      image: '/prayer.jpg',
       color: 'from-green-500 to-emerald-500',
       schedule: 'Wednesdays 6:00 PM - 8:00 PM',
       location: 'Youth Room',
