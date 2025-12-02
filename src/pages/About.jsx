@@ -9,7 +9,7 @@ const About = () => {
     {
       name: 'Markus',
       role: 'Lead Pastor',
-      image: '/Markus.jpg',
+      image: '/markus.jpg',
       bio: 'Markus has been serving as Lead Pastor at Mount Soledad Presbyterian Church, bringing a passion for biblical teaching and shepherding the congregation. His heart is to help people encounter the transforming love of Jesus and grow as disciples.',
     },
     {
@@ -411,7 +411,7 @@ const About = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-primary text-white rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-primary-dark transition-all duration-300"
+                className="px-8 py-4 bg-white text-primary rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-gray-100 transition-all duration-300"
               >
                 View Events
               </motion.button>
