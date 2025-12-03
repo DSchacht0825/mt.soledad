@@ -168,7 +168,10 @@ const Give = () => {
       {/* Online Giving Section */}
       <section className="section-container bg-white">
         <div className="max-w-2xl mx-auto">
-          <div className="rounded-2xl shadow-xl p-8 bg-gradient-to-br from-primary to-primary-light text-white text-center">
+          <div
+            className="rounded-2xl shadow-xl p-8 text-white text-center"
+            style={{ background: 'linear-gradient(to bottom right, #00527A, #2B81AB)' }}
+          >
             <h2 className="text-3xl font-bold mb-4">
               Give Online Now
             </h2>
