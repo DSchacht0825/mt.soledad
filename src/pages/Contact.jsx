@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import LazyMap from '../components/LazyMap';
 
 const Contact = () => {
 
@@ -112,17 +113,8 @@ const Contact = () => {
       <section className="section-container bg-white">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Map */}
-          <div className="rounded-xl overflow-hidden shadow-lg h-96">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.1234567890!2d-117.25!3d32.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDUxJzAwLjAiTiAxMTfCsDE1JzAwLjAiVw!5e0!3m2!1sen!2sus!4v1234567890"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Mount Soledad Presbyterian Church Location"
-            ></iframe>
+          <div className="rounded-xl overflow-hidden shadow-lg">
+            <LazyMap height={384} />
           </div>
 
           {/* Contact Form */}

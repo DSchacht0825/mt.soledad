@@ -168,15 +168,13 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Santa Breakfast Event */}
-      <section className="section-container bg-gray-50">
-        <div className="max-w-2xl mx-auto">
-          <img
-            src="/santa-breakfast-2025.jpg"
-            alt="Breakfast with Santa - December 14, 2024"
-            className="w-full rounded-2xl shadow-2xl"
-          />
-        </div>
+      {/* Christmas Eve Event */}
+      <section className="w-full">
+        <img
+          src="/Christmas Eve web graphic.png"
+          alt="Christmas Eve Service"
+          className="w-full"
+        />
       </section>
 
       {/* Quick Info Section */}
