@@ -285,7 +285,7 @@ const Home = () => {
               Watch Live
             </a>
             <a
-              href="https://www.youtube.com/@mountsoledadpresbyterianchurch/videos"
+              href="https://www.youtube.com/playlist?list=PLQOYCKRqz75Ca-QHE34xs2OGe7vWujHkp"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-black transition-all duration-300 shadow-md hover:shadow-lg"
