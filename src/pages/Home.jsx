@@ -171,7 +171,7 @@ const Home = () => {
       {/* Christmas Eve Event */}
       <section className="w-full">
         <img
-          src="/Christmas Eve web graphic.png"
+          src="/Christmas Eve web graphic.jpg"
           alt="Christmas Eve Service"
           className="w-full"
         />
