@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const Give = () => {
 
@@ -52,6 +53,12 @@ const Give = () => {
 
   return (
     <>
+      <SEO
+        title="Give Online | Support Our Mission | Mount Soledad Presbyterian Church"
+        description="Support Mount Soledad Presbyterian Church through secure online giving. Your tax-deductible donations fund worship services, children and youth ministry, missions, and compassionate outreach in San Diego and La Jolla."
+        canonical="https://www.mountsoledad.org/give"
+      />
+
       {/* Page Hero */}
       <section className="relative py-32 text-white overflow-hidden">
         <div

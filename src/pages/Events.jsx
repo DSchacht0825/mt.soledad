@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import SEO from '../components/SEO';
 
 const Events = () => {
   const [date, setDate] = useState(new Date());
@@ -92,6 +93,12 @@ const Events = () => {
 
   return (
     <>
+      <SEO
+        title="Events & Service Times | Mount Soledad Presbyterian Church"
+        description="View upcoming events and Sunday service times at Mount Soledad Presbyterian Church in La Jolla. Sunday worship at 10 AM, Bible study, prayer meetings, and community gatherings throughout the week."
+        canonical="https://www.mountsoledad.org/events"
+      />
+
       {/* Page Hero */}
       <section className="relative py-32 text-white overflow-hidden">
         <div
@@ -113,7 +120,7 @@ const Events = () => {
             transition={{ delay: 0.2 }}
             className="text-xl max-w-3xl mx-auto opacity-90"
           >
-            Join us for worship, fellowship, and opportunities to grow in faith
+            Join us for worship, fellowship, and opportunities to grow
           </motion.p>
         </div>
       </section>

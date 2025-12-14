@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 const CHANNEL_ID = 'UCEUmim46Wpoo759TbtwRODg';
@@ -79,6 +80,12 @@ const Home = () => {
 
   return (
     <>
+      <SEO
+        title="Mount Soledad Presbyterian Church | Christian Church in San Diego CA"
+        description="Welcome to Mount Soledad Presbyterian Church, a welcoming Christian church in San Diego CA. Join our faith community for Sunday worship services at 10 AM, Bible-centered teaching, and compassionate outreach. Located in La Jolla, serving families across San Diego County."
+        canonical="https://www.mountsoledad.org/"
+      />
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-end justify-center pb-16 overflow-hidden">
         {/* Background Video with Overlay */}
@@ -258,7 +265,7 @@ const Home = () => {
                 width="100%"
                 height="100%"
                 src={`https://www.youtube.com/embed/${latestVideoId}`}
-                title="Mount Soledad Presbyterian Church - Latest Sermon"
+                title="Mount Soledad Presbyterian Church - Sunday Worship Service Sermon"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -296,6 +303,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
     </>
   );
 };

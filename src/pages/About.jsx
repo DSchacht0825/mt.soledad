@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const About = () => {
   const [selectedStaff, setSelectedStaff] = useState(null);
@@ -80,6 +81,12 @@ const About = () => {
 
   return (
     <>
+      <SEO
+        title="About Our Church | What to Expect | Mount Soledad Presbyterian"
+        description="Learn about Mount Soledad Presbyterian Church, a welcoming faith community in La Jolla. Discover what to expect on your first visit, meet our leadership team, and explore our mission of spiritual growth and compassionate outreach."
+        canonical="https://www.mountsoledad.org/about"
+      />
+
       {/* Page Hero */}
       <section className="relative py-32 text-white overflow-hidden">
         <div
@@ -101,7 +108,7 @@ const About = () => {
             transition={{ delay: 0.2 }}
             className="text-xl max-w-3xl mx-auto opacity-90"
           >
-            Discover who we are, what we believe, and what you can expect when you visit
+            Discover who we are and what we believe
           </motion.p>
         </div>
       </section>

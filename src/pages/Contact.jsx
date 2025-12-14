@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import LazyMap from '../components/LazyMap';
+import SEO from '../components/SEO';
 
 const Contact = () => {
 
@@ -53,6 +54,12 @@ const Contact = () => {
 
   return (
     <>
+      <SEO
+        title="Contact & Location | Christian Church in La Jolla CA | Mount Soledad"
+        description="Visit Mount Soledad Presbyterian Church in La Jolla CA. Sunday worship service at 10 AM. Located at 6551 Soledad Mountain Rd, near UCSD, the beaches, and La Jolla Village. Free parking available. Call (858) 459-3865."
+        canonical="https://www.mountsoledad.org/contact"
+      />
+
       {/* Page Hero */}
       <section className="relative py-32 text-white overflow-hidden">
         <div
@@ -74,7 +81,7 @@ const Contact = () => {
             transition={{ delay: 0.2 }}
             className="text-xl max-w-3xl mx-auto opacity-90"
           >
-            We'd love to hear from you. Get in touch or come visit us!
+            We'd love to hear from you
           </motion.p>
         </div>
       </section>

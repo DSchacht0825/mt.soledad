@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Ministries = () => {
 
@@ -48,6 +49,12 @@ const Ministries = () => {
 
   return (
     <>
+      <SEO
+        title="Ministries | Children, Youth & Community Groups | Mount Soledad Church"
+        description="Explore ministries at Mount Soledad Presbyterian Church. Children and youth ministry, small groups, prayer ministry, and community outreach. Find your place to connect, grow, and serve in our La Jolla faith community."
+        canonical="https://www.mountsoledad.org/ministries"
+      />
+
       {/* Page Hero */}
       <section className="relative py-32 text-white overflow-hidden">
         <div
@@ -69,7 +76,7 @@ const Ministries = () => {
             transition={{ delay: 0.2 }}
             className="text-xl max-w-3xl mx-auto opacity-90"
           >
-            Discover opportunities to connect, grow, and serve in community
+            Discover opportunities to connect, grow, and serve
           </motion.p>
         </div>
       </section>
