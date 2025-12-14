@@ -27,7 +27,7 @@ const About = () => {
     {
       name: 'Krista',
       role: 'Church Administrator',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400',
+      image: null, // Photo coming soon
       bio: 'Krista serves as our church administrator, ensuring the smooth operation of our ministry. She coordinates events, manages communications, and supports the staff and congregation with care and efficiency.',
     },
   ];
@@ -197,11 +197,20 @@ const About = () => {
               className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <div className="h-64 overflow-hidden">
-                <img
-                  src={staff.image}
-                  alt={staff.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                {staff.image ? (
+                  <img
+                    src={staff.image}
+                    alt={staff.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex flex-col items-center justify-center">
+                    <svg className="w-20 h-20 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    <p className="text-gray-500 text-sm font-medium">Photo Coming Soon</p>
+                  </div>
+                )}
               </div>
               <div className="p-6 text-center">
                 <h3 className="text-xl font-bold text-primary mb-1">{staff.name}</h3>
@@ -238,11 +247,20 @@ const About = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="h-64 overflow-hidden">
-                <img
-                  src={selectedStaff.image}
-                  alt={selectedStaff.name}
-                  className="w-full h-full object-cover"
-                />
+                {selectedStaff.image ? (
+                  <img
+                    src={selectedStaff.image}
+                    alt={selectedStaff.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex flex-col items-center justify-center">
+                    <svg className="w-24 h-24 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    <p className="text-gray-500 font-medium">Photo Coming Soon</p>
+                  </div>
+                )}
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-primary mb-1">{selectedStaff.name}</h3>

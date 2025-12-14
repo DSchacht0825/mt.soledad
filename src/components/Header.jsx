@@ -53,44 +53,52 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          {!SOFT_LAUNCH && (
-            <div className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link, index) => (
-                <NavLink
-                  key={link.name}
-                  to={link.path}
-                  className={({ isActive }) =>
-                    `text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group ${
-                      isActive ? 'text-primary' : ''
-                    }`
-                  }
-                >
-                  {({ isActive }) => (
-                    <>
-                      {link.name}
-                      <span
-                        className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                          isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                        }`}
-                      ></span>
-                    </>
-                  )}
-                </NavLink>
-              ))}
-              <Link to="/give">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="btn-primary"
-                >
-                  Give
-                </motion.button>
-              </Link>
-            </div>
-          )}
+          <div className="hidden md:flex items-center space-x-8">
+            {!SOFT_LAUNCH && navLinks.map((link, index) => (
+              <NavLink
+                key={link.name}
+                to={link.path}
+                className={({ isActive }) =>
+                  `text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group ${
+                    isActive ? 'text-primary' : ''
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    {link.name}
+                    <span
+                      className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}
+                    ></span>
+                  </>
+                )}
+              </NavLink>
+            ))}
+            <Link to="/give">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-primary"
+              >
+                Give
+              </motion.button>
+            </Link>
+          </div>
 
-          {/* Mobile Menu Button */}
-          {!SOFT_LAUNCH && (
+          {/* Mobile Give Button (soft launch) or Menu Button (full launch) */}
+          {SOFT_LAUNCH ? (
+            <Link to="/give" className="md:hidden">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-primary"
+              >
+                Give
+              </motion.button>
+            </Link>
+          ) : (
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 text-gray-700 hover:text-primary transition-colors"
