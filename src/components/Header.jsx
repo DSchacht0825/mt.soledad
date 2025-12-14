@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+// Set to false to show full navigation when ready for full launch
+const SOFT_LAUNCH = true;
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -50,65 +53,69 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link, index) => (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                className={({ isActive }) =>
-                  `text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group ${
-                    isActive ? 'text-primary' : ''
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    {link.name}
-                    <span
-                      className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                      }`}
-                    ></span>
-                  </>
-                )}
-              </NavLink>
-            ))}
-            <Link to="/give">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary"
-              >
-                Give
-              </motion.button>
-            </Link>
-          </div>
+          {!SOFT_LAUNCH && (
+            <div className="hidden md:flex items-center space-x-8">
+              {navLinks.map((link, index) => (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  className={({ isActive }) =>
+                    `text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group ${
+                      isActive ? 'text-primary' : ''
+                    }`
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      {link.name}
+                      <span
+                        className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                          isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                        }`}
+                      ></span>
+                    </>
+                  )}
+                </NavLink>
+              ))}
+              <Link to="/give">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn-primary"
+                >
+                  Give
+                </motion.button>
+              </Link>
+            </div>
+          )}
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-primary transition-colors"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          {!SOFT_LAUNCH && (
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 text-gray-700 hover:text-primary transition-colors"
             >
-              {isMobileMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {isMobileMenuOpen ? (
+                  <path d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          )}
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
+        {!SOFT_LAUNCH && isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
