@@ -175,15 +175,6 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Christmas Eve Event */}
-      <section className="w-full">
-        <img
-          src="/Christmas Eve web graphic.jpg"
-          alt="Christmas Eve Service"
-          className="w-full"
-        />
-      </section>
-
       {/* Quick Info Section */}
       <section className="section-container bg-gray-50">
         <div className="grid md:grid-cols-3 gap-8">
