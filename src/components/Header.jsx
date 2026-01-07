@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 // Set to false to show full navigation when ready for full launch
-const SOFT_LAUNCH = true;
+const SOFT_LAUNCH = false;
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);

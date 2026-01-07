@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import LazyMap from './LazyMap';
 
 // Set to false to show full navigation when ready for full launch
-const SOFT_LAUNCH = true;
+const SOFT_LAUNCH = false;
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
