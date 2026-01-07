@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Set to false to show full navigation when ready for full launch
 const SOFT_LAUNCH = false;
@@ -8,6 +8,9 @@ const SOFT_LAUNCH = false;
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const dropdownRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,13 +20,39 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setOpenDropdown(null);
+  }, [location]);
+
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
+    {
+      name: 'About',
+      path: '/about',
+      dropdown: [
+        { name: 'About Us', path: '/about' },
+        { name: 'Pastoral Search', path: '/pastoral-search' },
+      ]
+    },
     { name: 'Ministries', path: '/ministries' },
     { name: 'Events', path: '/events' },
     { name: 'Contact', path: '/contact' },
   ];
+
+  const isAboutActive = location.pathname === '/about' || location.pathname === '/pastoral-search';
 
   return (
     <motion.header
@@ -53,28 +82,83 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {!SOFT_LAUNCH && navLinks.map((link, index) => (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                className={({ isActive }) =>
-                  `text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group ${
-                    isActive ? 'text-primary' : ''
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <>
+          <div className="hidden md:flex items-center space-x-8" ref={dropdownRef}>
+            {!SOFT_LAUNCH && navLinks.map((link) => (
+              link.dropdown ? (
+                // Dropdown menu item
+                <div key={link.name} className="relative">
+                  <button
+                    onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
+                    className={`text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group flex items-center gap-1 ${
+                      isAboutActive ? 'text-primary' : ''
+                    }`}
+                  >
                     {link.name}
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ${openDropdown === link.name ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
                     <span
                       className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                        isAboutActive ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}
                     ></span>
-                  </>
-                )}
-              </NavLink>
+                  </button>
+
+                  <AnimatePresence>
+                    {openDropdown === link.name && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
+                      >
+                        {link.dropdown.map((subLink) => (
+                          <NavLink
+                            key={subLink.name}
+                            to={subLink.path}
+                            onClick={() => setOpenDropdown(null)}
+                            className={({ isActive }) =>
+                              `block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-200 ${
+                                isActive ? 'text-primary bg-gray-50' : ''
+                              }`
+                            }
+                          >
+                            {subLink.name}
+                          </NavLink>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                // Regular menu item
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  className={({ isActive }) =>
+                    `text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group ${
+                      isActive ? 'text-primary' : ''
+                    }`
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      {link.name}
+                      <span
+                        className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                          isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                        }`}
+                      ></span>
+                    </>
+                  )}
+                </NavLink>
+              )
             ))}
             <Link to="/give">
               <motion.button
@@ -131,18 +215,65 @@ const Header = () => {
             className="md:hidden mt-4 pb-4"
           >
             {navLinks.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `block py-3 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg px-4 transition-colors duration-300 ${
-                    isActive ? 'text-primary bg-gray-50' : ''
-                  }`
-                }
-              >
-                {link.name}
-              </NavLink>
+              link.dropdown ? (
+                // Mobile dropdown
+                <div key={link.name}>
+                  <button
+                    onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
+                    className={`w-full flex justify-between items-center py-3 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg px-4 transition-colors duration-300 ${
+                      isAboutActive ? 'text-primary bg-gray-50' : ''
+                    }`}
+                  >
+                    {link.name}
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ${openDropdown === link.name ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <AnimatePresence>
+                    {openDropdown === link.name && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="pl-4"
+                      >
+                        {link.dropdown.map((subLink) => (
+                          <NavLink
+                            key={subLink.name}
+                            to={subLink.path}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className={({ isActive }) =>
+                              `block py-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg px-4 transition-colors duration-300 ${
+                                isActive ? 'text-primary bg-gray-50' : ''
+                              }`
+                            }
+                          >
+                            {subLink.name}
+                          </NavLink>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `block py-3 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg px-4 transition-colors duration-300 ${
+                      isActive ? 'text-primary bg-gray-50' : ''
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              )
             ))}
             <Link
               to="/give"

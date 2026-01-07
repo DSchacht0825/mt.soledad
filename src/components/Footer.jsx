@@ -11,6 +11,7 @@ const Footer = () => {
   const quickLinks = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
+    { name: 'Pastoral Search', href: '/pastoral-search' },
     { name: 'Ministries', href: '/ministries' },
     { name: 'Events', href: '/events' },
     { name: 'Contact', href: '/contact' },
