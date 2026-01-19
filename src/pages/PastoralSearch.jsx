@@ -98,7 +98,7 @@ const PastoralSearch = () => {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border-t-4 border-primary"
               >
-                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary to-primary-light rounded-full flex items-center justify-center">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(to bottom right, #00527A, #2B81AB)' }}>
                   <span className="text-3xl font-bold text-white">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </span>
@@ -209,7 +209,7 @@ const PastoralSearch = () => {
             viewport={{ once: true }}
             className="bg-gradient-to-br from-primary/5 to-primary-light/10 rounded-2xl p-8 md:p-12 text-center"
           >
-            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-primary to-primary-light rounded-full flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(to bottom right, #00527A, #2B81AB)' }}>
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
@@ -225,7 +225,7 @@ const PastoralSearch = () => {
       </section>
 
       {/* Contact CTA */}
-      <section className="section-container bg-gradient-to-r from-primary to-primary-light text-white">
+      <section className="section-container text-white" style={{ background: 'linear-gradient(to right, #00527A, #2B81AB)' }}>
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-6">
             Questions About Our Search?

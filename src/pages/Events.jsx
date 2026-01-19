@@ -356,7 +356,7 @@ const Events = () => {
       </section>
 
       {/* Live Stream CTA */}
-      <section className="section-container bg-primary text-white">
+      <section className="section-container text-white" style={{ backgroundColor: '#00527A' }}>
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-6">
             Watch Services Online

@@ -165,7 +165,7 @@ const Ministries = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="section-container bg-gradient-to-r from-primary to-primary-light text-white">
+      <section className="section-container text-white" style={{ background: 'linear-gradient(to right, #00527A, #2B81AB)' }}>
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-6">
             Find Your Place to Serve

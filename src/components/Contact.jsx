@@ -117,7 +117,8 @@ const Contact = () => {
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
           id="give"
-          className="card p-8 bg-gradient-to-br from-primary to-primary-light text-white"
+          className="card p-8 text-white"
+          style={{ background: 'linear-gradient(to bottom right, #00527A, #2B81AB)' }}
         >
           <h3 className="text-3xl font-bold mb-4">Online Giving</h3>
           <p className="text-lg mb-6 opacity-90">

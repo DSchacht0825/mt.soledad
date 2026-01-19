@@ -113,7 +113,8 @@ const Ministries = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className="mt-16 text-center bg-gradient-to-r from-primary to-primary-light rounded-2xl p-12 text-white"
+        className="mt-16 text-center rounded-2xl p-12 text-white"
+        style={{ background: 'linear-gradient(to right, #00527A, #2B81AB)' }}
       >
         <h3 className="text-3xl font-bold mb-4">
           Ready to Get Involved?

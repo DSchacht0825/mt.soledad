@@ -304,7 +304,7 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-container bg-gradient-to-r from-primary to-primary-light text-white">
+      <section className="section-container text-white" style={{ background: 'linear-gradient(to right, #00527A, #2B81AB)' }}>
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Visit?
@@ -326,7 +326,7 @@ const About = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-white text-primary rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-gray-100 transition-all duration-300"
+                className="px-8 py-4 bg-gray-100 text-blue-800 rounded-lg font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-gray-200 transition-all duration-300"
               >
                 View Events
               </motion.button>
