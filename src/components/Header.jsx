@@ -44,7 +44,10 @@ const Header = () => {
       path: '/about',
       dropdown: [
         { name: 'About Us', path: '/about' },
+        { name: 'Leadership', path: '/leadership' },
+        { name: 'Sermons', path: 'https://www.youtube.com/playlist?list=PLQOYCKRqz75Ca-QHE34xs2OGe7vWujHkp', external: true },
         { name: 'Pastoral Search', path: '/pastoral-search' },
+        { name: 'Why We Give', path: '/why-we-give' },
       ]
     },
     { name: 'Ministries', path: '/ministries' },
@@ -52,7 +55,7 @@ const Header = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
-  const isAboutActive = location.pathname === '/about' || location.pathname === '/pastoral-search';
+  const isAboutActive = location.pathname === '/about' || location.pathname === '/leadership' || location.pathname === '/pastoral-search' || location.pathname === '/why-we-give';
 
   return (
     <motion.header
@@ -119,18 +122,31 @@ const Header = () => {
                         className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50"
                       >
                         {link.dropdown.map((subLink) => (
-                          <NavLink
-                            key={subLink.name}
-                            to={subLink.path}
-                            onClick={() => setOpenDropdown(null)}
-                            className={({ isActive }) =>
-                              `block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-200 ${
-                                isActive ? 'text-primary bg-gray-50' : ''
-                              }`
-                            }
-                          >
-                            {subLink.name}
-                          </NavLink>
+                          subLink.external ? (
+                            <a
+                              key={subLink.name}
+                              href={subLink.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setOpenDropdown(null)}
+                              className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-200"
+                            >
+                              {subLink.name}
+                            </a>
+                          ) : (
+                            <NavLink
+                              key={subLink.name}
+                              to={subLink.path}
+                              onClick={() => setOpenDropdown(null)}
+                              className={({ isActive }) =>
+                                `block px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-200 ${
+                                  isActive ? 'text-primary bg-gray-50' : ''
+                                }`
+                              }
+                            >
+                              {subLink.name}
+                            </NavLink>
+                          )
                         ))}
                       </motion.div>
                     )}
@@ -160,7 +176,7 @@ const Header = () => {
                 </NavLink>
               )
             ))}
-            <Link to="/give">
+            <a href="https://mountsoledadchurch.churchcenter.com/giving" target="_blank" rel="noopener noreferrer">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -168,12 +184,12 @@ const Header = () => {
               >
                 Give
               </motion.button>
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Give Button (soft launch) or Menu Button (full launch) */}
           {SOFT_LAUNCH ? (
-            <Link to="/give" className="md:hidden">
+            <a href="https://mountsoledadchurch.churchcenter.com/giving" target="_blank" rel="noopener noreferrer" className="md:hidden">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -181,7 +197,7 @@ const Header = () => {
               >
                 Give
               </motion.button>
-            </Link>
+            </a>
           ) : (
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -243,18 +259,31 @@ const Header = () => {
                         className="pl-4"
                       >
                         {link.dropdown.map((subLink) => (
-                          <NavLink
-                            key={subLink.name}
-                            to={subLink.path}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className={({ isActive }) =>
-                              `block py-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg px-4 transition-colors duration-300 ${
-                                isActive ? 'text-primary bg-gray-50' : ''
-                              }`
-                            }
-                          >
-                            {subLink.name}
-                          </NavLink>
+                          subLink.external ? (
+                            <a
+                              key={subLink.name}
+                              href={subLink.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="block py-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg px-4 transition-colors duration-300"
+                            >
+                              {subLink.name}
+                            </a>
+                          ) : (
+                            <NavLink
+                              key={subLink.name}
+                              to={subLink.path}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className={({ isActive }) =>
+                                `block py-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg px-4 transition-colors duration-300 ${
+                                  isActive ? 'text-primary bg-gray-50' : ''
+                                }`
+                              }
+                            >
+                              {subLink.name}
+                            </NavLink>
+                          )
                         ))}
                       </motion.div>
                     )}
@@ -275,13 +304,15 @@ const Header = () => {
                 </NavLink>
               )
             ))}
-            <Link
-              to="/give"
+            <a
+              href="https://mountsoledadchurch.churchcenter.com/giving"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
               className="btn-primary w-full text-center block mt-3"
             >
               Give
-            </Link>
+            </a>
           </motion.div>
         )}
       </nav>

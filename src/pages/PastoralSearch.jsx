@@ -3,11 +3,19 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
 const PastoralSearch = () => {
+  const committeeMembers = [
+    { name: 'Debby Dang', role: 'Chair' },
+    { name: 'Carol Sullivan', role: 'Co-Chair' },
+    { name: 'Kathleen Amaya', role: 'Committee Member' },
+    { name: 'Amanda Dahlgren', role: 'Committee Member' },
+    { name: 'Colleen Kelly', role: 'Committee Member' },
+  ];
+
   return (
     <>
       <SEO
         title="Pastoral Search | Mount Soledad Presbyterian Church"
-        description="Learn about Mount Soledad Presbyterian Church's pastoral search process. We are seeking a new pastor to lead our congregation in La Jolla, San Diego."
+        description="Learn about Mount Soledad Presbyterian Church's pastoral search process and meet our Pastor Nominating Committee."
         canonical="https://www.mountsoledad.org/pastoral-search"
       />
 
@@ -37,181 +45,182 @@ const PastoralSearch = () => {
         </div>
       </section>
 
-      {/* Introduction */}
-      <section className="section-container bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Our Search Process
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            Mount Soledad Presbyterian Church is prayerfully seeking a new pastor to lead our
-            congregation. We are committed to finding a shepherd who shares our vision of being
-            rooted in grace, moved to mission, and open-hearted to all.
-          </p>
-        </div>
-      </section>
-
-      {/* What We're Looking For */}
-      <section className="section-container bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-              What We're Looking For
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our ideal candidate will embody these qualities
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-primary mb-3 text-center">
-                Biblical Teaching
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-center">
-                A gifted communicator who brings Scripture to life with clarity, depth, and practical application.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-primary mb-3 text-center">
-                Pastoral Heart
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-center">
-                A compassionate shepherd who genuinely cares for people and walks alongside them through life's joys and challenges.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-primary mb-3 text-center">
-                Community Builder
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-center">
-                A collaborative leader who builds relationships, empowers others, and fosters a welcoming church family.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-primary mb-3 text-center">
-                Mission-Minded
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-center">
-                A visionary who is passionate about reaching beyond our walls to serve our community and share God's love.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-red-500 to-rose-500 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-primary mb-3 text-center">
-                Multigenerational Focus
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-center">
-                A leader who values and engages all ages, from children to seniors, creating intergenerational connections.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-primary mb-3 text-center">
-                Reformed Theology
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-center">
-                A pastor grounded in Presbyterian/Reformed tradition who honors our heritage while embracing our welcoming spirit.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Search Committee */}
+      {/* Committee Update */}
       <section className="section-container bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8 text-center">
+              Committee Update
+            </h2>
+            <div className="prose prose-lg max-w-none text-gray-700">
+              <p className="leading-relaxed mb-6">
+                The Pastor Nominating Committee (PNC) had 2 members drop out due to prior
+                commitments so the congregation approved an additional member, Carol Sullivan, to the PNC.
+              </p>
+              <p className="leading-relaxed mb-6">
+                The salary range for the Pastor position is being determined by the finance committee
+                and will be included in the congregation's approval of the budget.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Committee Section */}
+      <section className="section-container bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
               Pastor Nominating Committee
             </h2>
-            <p className="text-xl text-gray-600">
-              Our committee is dedicated to finding God's choice for our next pastor
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Meet the dedicated team leading our pastoral search
             </p>
+          </motion.div>
+
+          {/* Leadership Cards */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+            {committeeMembers.slice(0, 2).map((member, index) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border-t-4 border-primary"
+              >
+                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary to-primary-light rounded-full flex items-center justify-center">
+                  <span className="text-3xl font-bold text-white">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-primary mb-2 text-center">
+                  {member.name}
+                </h3>
+                <p className="text-lg text-accent font-semibold text-center">
+                  {member.role}
+                </p>
+              </motion.div>
+            ))}
           </div>
 
-          <div className="bg-gradient-to-br from-primary/5 to-primary-light/5 rounded-2xl p-8 md:p-12">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              The Pastor Nominating Committee (PNC) has been elected by our congregation to lead
-              this important search process. They are committed to prayer, discernment, and
-              thorough evaluation as they seek candidates who align with our church's mission and values.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              We covet your prayers during this season of transition. Please pray for wisdom,
-              unity, and clear guidance as we seek the shepherd God has prepared for Mount Soledad
-              Presbyterian Church.
-            </p>
+          {/* Member Cards */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {committeeMembers.slice(2).map((member, index) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center border-2 border-primary/20">
+                  <span className="text-xl font-bold text-primary">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-primary mb-1 text-center">
+                  {member.name}
+                </h3>
+                <p className="text-gray-600 text-center">
+                  {member.role}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* How to Get Involved */}
+      {/* Search Process */}
+      <section className="section-container bg-white">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8 text-center">
+              Our Search Process
+            </h2>
+            <div className="prose prose-lg max-w-none text-gray-700">
+              <p className="leading-relaxed mb-6">
+                We have completed the MDP (job description) in accordance with the information
+                gleaned from the Mission Study and input from the members of the PNC. We are
+                currently working on the narrative questions that will be included in the job description.
+              </p>
+              <div className="flex justify-center my-8">
+                <a
+                  href="/2025_Final MSPC_MissionStudy.pdf"
+                  download
+                  className="inline-flex items-center gap-3 px-6 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Download 2025 Mission Study (PDF)
+                </a>
+              </div>
+              <p className="leading-relaxed mb-6">
+                Once those are complete they will be sent to Session along with the MDP to be
+                approved then posted on the Presbytery website. Once it is posted, potential candidate
+                matches will be reviewed by the PNC and those who are determined to potentially be a
+                good fit will go through an interview process.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Membership Call */}
       <section className="section-container bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            How You Can Help
-          </h2>
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-lg p-8 md:p-12 border-l-4 border-accent"
+          >
+            <h3 className="text-2xl font-bold text-primary mb-4">Your Vote Matters</h3>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              The final candidate's call to serve at MSPC will need to be approved by a vote by
+              church membership. Please consider becoming a member through the next membership class
+              in order to be able to participate in that vote.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-primary to-primary-light rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Pray</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Lift up our search committee, potential candidates, and our congregation in prayer.
-                Ask God to guide every step of this process.
-              </p>
+      {/* Prayer Request */}
+      <section className="section-container bg-white">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-primary/5 to-primary-light/10 rounded-2xl p-8 md:p-12 text-center"
+          >
+            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-primary to-primary-light rounded-full flex items-center justify-center">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
             </div>
-
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Refer</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Know a pastor who might be a good fit? We welcome referrals from our congregation
-                and community.
-              </p>
-            </div>
-          </div>
+            <h3 className="text-2xl font-bold text-primary mb-4">Please Pray With Us</h3>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Please pray for the PNC to be guided by God as they walk through this process.
+              Pray for discernment and wisdom as we put together the materials that will lead us
+              to the next pastor for MSPC.
+            </p>
+          </motion.div>
         </div>
       </section>
 
