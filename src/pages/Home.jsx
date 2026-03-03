@@ -5,6 +5,7 @@ import SEO from '../components/SEO';
 
 const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 const CHANNEL_ID = 'UCEUmim46Wpoo759TbtwRODg';
+const SERMON_PLAYLIST_ID = 'PLQOYCKRqz75Ca-QHE34xs2OGe7vWujHkp';
 
 const Home = () => {
   const videoRef = useRef(null);
@@ -27,14 +28,14 @@ const Home = () => {
           return;
         }
 
-        // If no live stream, get latest upload
+        // If no live stream, get latest video from sermon playlist
         const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&order=date&maxResults=1&type=video&key=${YOUTUBE_API_KEY}`
+          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${SERMON_PLAYLIST_ID}&maxResults=1&key=${YOUTUBE_API_KEY}`
         );
         const data = await response.json();
 
         if (data.items && data.items.length > 0) {
-          setLatestVideoId(data.items[0].id.videoId);
+          setLatestVideoId(data.items[0].snippet.resourceId.videoId);
         }
       } catch (error) {
         console.error('Error fetching YouTube video:', error);
