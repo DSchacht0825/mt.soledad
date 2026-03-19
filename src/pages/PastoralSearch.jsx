@@ -54,16 +54,17 @@ const PastoralSearch = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8 text-center">
-              Committee Update
+              Congregation Update - 2/1/2026
             </h2>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="leading-relaxed mb-6">
-                The Pastor Nominating Committee (PNC) had 2 members drop out due to prior
-                commitments so the congregation approved an additional member, Carol Sullivan, to the PNC.
+                The Ministry Discernment Profile (MDP) has been approved by Session and will soon be posted on the Church Leadership Connection (CLC), the PC(USA) church job board. In addition to this posting, we plan to share the job description with seminaries and other churches so they can distribute it within their networks.
               </p>
               <p className="leading-relaxed mb-6">
-                The salary range for the Pastor position is being determined by the finance committee
-                and will be included in the congregation's approval of the budget.
+                If you know of a church, seminary, or contact that might help share this opportunity, please reach out to us. We would be happy to provide the necessary information and materials to share.
+              </p>
+              <p className="leading-relaxed mb-6">
+                Our next step is to officially post the MDP and begin receiving matches with potential candidates through the CLC system. The purpose of this entire process—from the Mission Study, to the election of the Pastor Nominating Committee, to the completion of the MDP—has been to clarify the church's vision for the future and to ensure that our next pastor will be a strong match for the church future that the congregation envisions.
               </p>
             </div>
           </motion.div>
@@ -168,16 +169,6 @@ const PastoralSearch = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                   Download 2025 Mission Study (PDF)
-                </a>
-                <a
-                  href="/2 1 26 Congregation Update .docx"
-                  download
-                  className="inline-flex items-center gap-3 px-6 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  February 1st Congregation Update
                 </a>
                 <a
                   href="/job description 11_25 .docx"
