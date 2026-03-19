@@ -4,7 +4,7 @@ import SEO from '../components/SEO';
 
 const PastoralSearch = () => {
   const committeeMembers = [
-    { name: 'Debby Dang', role: 'Chair' },
+    { name: 'Deborah Dang', role: 'Chair' },
     { name: 'Carol Sullivan', role: 'Co-Chair' },
     { name: 'Kathleen Amaya', role: 'Committee Member' },
     { name: 'Amanda Dahlgren', role: 'Committee Member' },
@@ -158,7 +158,7 @@ const PastoralSearch = () => {
                 gleaned from the Mission Study and input from the members of the PNC. We are
                 currently working on the narrative questions that will be included in the job description.
               </p>
-              <div className="flex justify-center my-8">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 my-8">
                 <a
                   href="/2025_Final MSPC_MissionStudy.pdf"
                   download
@@ -168,6 +168,26 @@ const PastoralSearch = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                   Download 2025 Mission Study (PDF)
+                </a>
+                <a
+                  href="/2 1 26 Congregation Update .docx"
+                  download
+                  className="inline-flex items-center gap-3 px-6 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  February 1st Congregation Update
+                </a>
+                <a
+                  href="/job description 11_25 .docx"
+                  download
+                  className="inline-flex items-center gap-3 px-6 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Pastor Job Description
                 </a>
               </div>
               <p className="leading-relaxed mb-6">
