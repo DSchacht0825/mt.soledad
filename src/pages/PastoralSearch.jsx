@@ -54,7 +54,7 @@ const PastoralSearch = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8 text-center">
-              Congregation Update - 2/1/2026
+              Update - Feb. 2026
             </h2>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="leading-relaxed mb-6">
