@@ -17,7 +17,7 @@ const Contact = () => {
       ),
       title: 'Address',
       details: ['6551 Soledad Mountain Rd.', 'La Jolla, CA 92037'],
-      link: 'https://maps.google.com/?q=6551+Soledad+Mountain+Rd+La+Jolla+CA+92037',
+      link: 'https://www.google.com/maps/search/?api=1&query=Mount+Soledad+Presbyterian+Church,+6551+Soledad+Mountain+Rd,+La+Jolla,+CA+92037',
       linkText: 'Get Directions',
     },
     {
@@ -38,8 +38,8 @@ const Contact = () => {
         </svg>
       ),
       title: 'Email',
-      details: ['info@mountsoledad.org'],
-      link: 'mailto:info@mountsoledad.org',
+      details: ['officemanager@mountsoledad.org'],
+      link: 'mailto:officemanager@mountsoledad.org',
       linkText: 'Email Us',
     },
     {
