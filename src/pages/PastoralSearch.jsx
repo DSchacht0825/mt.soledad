@@ -54,17 +54,26 @@ const PastoralSearch = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8 text-center">
-              Update - Feb. 2026
+              Update - Mar. 2026
             </h2>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="leading-relaxed mb-6">
-                The Ministry Discernment Profile (MDP) has been approved by Session and will soon be posted on the Church Leadership Connection (CLC), the PC(USA) church job board. In addition to this posting, we plan to share the job description with seminaries and other churches so they can distribute it within their networks.
+                <strong>MDP is live on CLC!</strong> We answered compatibility questions (ranking on a scale of 0-100 certain qualities we would value in a pastor). Those compatibility questions are automatically matched with 25 candidates and ranked as "high", "medium" or "low" compatibility depending on how the candidate answered those same questions.
               </p>
               <p className="leading-relaxed mb-6">
-                If you know of a church, seminary, or contact that might help share this opportunity, please reach out to us. We would be happy to provide the necessary information and materials to share.
+                Pastors looking for a job are also able to "self-refer" so they appear in our results. We are currently reviewing the PDPs (automatic matches and self-referrals) individually and evaluating them using a presbytery evaluation form.
               </p>
               <p className="leading-relaxed mb-6">
-                Our next step is to officially post the MDP and begin receiving matches with potential candidates through the CLC system. The purpose of this entire process—from the Mission Study, to the election of the Pastor Nominating Committee, to the completion of the MDP—has been to clarify the church's vision for the future and to ensure that our next pastor will be a strong match for the church future that the congregation envisions.
+                At our meeting next Friday we will compare our "top picks" and start the decision process on who we will invite to interview via Zoom. After we interview 10-12 candidates via Zoom we will narrow down to our 2 or 3 top candidates for an in-person interview.
+              </p>
+              <p className="leading-relaxed mb-6">
+                This will include looking at sermon videos, reading blogs (if applicable), checking references, etc. The top 2 or 3 candidates we invite for an in-person interview will be background checked by the presbytery.
+              </p>
+              <p className="leading-relaxed mb-6">
+                Our next PNC committee meeting will focus on reviewing candidates and developing interview questions.
+              </p>
+              <p className="leading-relaxed mb-6 bg-primary/5 p-4 rounded-lg">
+                <strong>If you have a question you think we should be asking these candidates, please submit it to us!</strong> Write it on a piece of paper now, or email <a href="mailto:katamaya@gmail.com" className="text-primary hover:underline">katamaya@gmail.com</a>
               </p>
             </div>
           </motion.div>
