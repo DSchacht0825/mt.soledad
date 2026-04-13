@@ -157,22 +157,6 @@ const Home = () => {
               </p>
             </motion.div>
 
-            {/* Easter Services */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.0, duration: 0.8 }}
-              className="mt-6 flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <div className="bg-white/15 backdrop-blur-md rounded-2xl px-6 py-4 border-2 border-cyan-400/30 shadow-xl">
-                <p className="text-xl font-bold">Good Friday Service</p>
-                <p className="text-lg text-blue-100">April 3, 7pm</p>
-              </div>
-              <div className="bg-white/15 backdrop-blur-md rounded-2xl px-6 py-4 border-2 border-cyan-400/30 shadow-xl">
-                <p className="text-xl font-bold">Easter Celebration</p>
-                <p className="text-lg text-blue-100">April 5, 10am</p>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
 
@@ -191,39 +175,6 @@ const Home = () => {
             <motion.div className="w-1.5 h-3 bg-white rounded-full mt-2"></motion.div>
           </motion.div>
         </motion.div>
-      </section>
-
-      {/* Easter Services Section */}
-      <section className="section-container bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <img
-                src="/Dark Illustrative Good Friday Post.png"
-                alt="Good Friday Service"
-                className="w-full h-auto"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <img
-                src="/Bright Illustrative Easter Post.png"
-                alt="Easter Sunday Service"
-                className="w-full h-auto"
-              />
-            </motion.div>
-          </div>
-        </div>
       </section>
 
       {/* Quick Info Section */}
