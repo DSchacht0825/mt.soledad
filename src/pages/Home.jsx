@@ -177,6 +177,24 @@ const Home = () => {
         </motion.div>
       </section>
 
+      {/* Worship Night Section */}
+      <section className="section-container bg-white">
+        <div className="max-w-2xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
+            <img
+              src="/Worship night.png"
+              alt="Worship Night"
+              className="w-full h-auto"
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Quick Info Section */}
       <section className="section-container bg-gray-50">
         <div className="grid md:grid-cols-3 gap-8">
