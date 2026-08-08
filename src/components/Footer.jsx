@@ -219,6 +219,9 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-blue-100 text-sm">
               &copy; {currentYear} Mount Soledad Presbyterian Church. All rights reserved.
+              <span className="block text-xs opacity-80 mt-1">
+                Website by <a href="https://causory.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-cyan-300">Causory</a>
+              </span>
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-blue-100 hover:text-cyan-300 transition-colors">
