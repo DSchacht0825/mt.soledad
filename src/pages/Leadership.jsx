@@ -27,7 +27,7 @@ const Leadership = () => {
     {
       name: 'Krista',
       role: 'Church Administrator',
-      image: null,
+      image: '/Krista.jpg',
       bio: 'Krista serves as our church administrator, ensuring the smooth operation of our ministry. She coordinates events, manages communications, and supports the staff and congregation with care and efficiency.',
     },
   ];
