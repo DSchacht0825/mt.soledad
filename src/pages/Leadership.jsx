@@ -8,24 +8,24 @@ const Leadership = () => {
   const staffMembers = [
     {
       name: 'Rev. Dr. Markus Watson',
-      role: 'Interim Pastor',
+      role: 'Lead Pastor',
       image: '/Markus.jpg',
-      bio: 'Rev. Dr. Markus Watson has served in ministry for over 25 years and joined Mount Soledad Presbyterian Church as interim pastor in 2022. He holds a Doctor of Ministry with a focus on missional leadership from Fuller Theological Seminary and brings a deep commitment to helping people and churches discover how God is inviting them to join in God\'s mission. Markus is the host of the Spiritual Life and Leadership podcast and author of Beyond Thingification: Helping Your Church Engage in God\'s Mission, both of which reflect his passion for helping ministry leaders cultivate healthy inner lives for the sake of God\'s mission. When he\'s not preaching or writing, you\'ll likely find him near the ocean—one of the perks of ministry in San Diego. Markus and his wife Robin have three children—two in college and one at home—and he\'s a lifelong Star Wars fan who maintains that the only Star Wars he\'ll ever need is the original trilogy (even though some of the new stuff is actually pretty good).',
+      bio: 'Rev. Dr. Markus Watson has served in ministry for over 25 years and joined Mount Soledad Presbyterian Church in 2022, where he now serves as Lead Pastor. He holds a Doctor of Ministry with a focus on missional leadership from Fuller Theological Seminary and brings a deep commitment to helping people and churches discover how God is inviting them to join in God\'s mission. Markus is the host of the Spiritual Life and Leadership podcast and author of Beyond Thingification: Helping Your Church Engage in God\'s Mission, both of which reflect his passion for helping ministry leaders cultivate healthy inner lives for the sake of God\'s mission. When he\'s not preaching or writing, you\'ll likely find him near the ocean—one of the perks of ministry in San Diego. Markus and his wife Robin have three children—two in college and one at home—and he\'s a lifelong Star Wars fan who maintains that the only Star Wars he\'ll ever need is the original trilogy (even though some of the new stuff is actually pretty good).',
     },
     {
-      name: 'Derek',
+      name: 'Derek Rice',
       role: 'Worship Director',
       image: '/Derek.jpg',
       bio: 'Derek leads our worship ministry with a heart for creating meaningful worship experiences. He is passionate about helping the congregation connect with God through music and creating space for authentic worship.',
     },
     {
-      name: 'Carl',
+      name: 'Carl Ogden',
       role: 'Christian Education Director',
       image: '/Carl.jpg',
       bio: 'Carl works bi-vocationally, spending his days as an electrical engineer and his evenings and weekends at Mount Soledad. He has a passion for connecting with young people and showing them the beauty of the Christian faith. He completed a master\'s degree in Ministry Leadership at Wheaton College in 2024. He and his wife Christy have two adult sons. One is married and lives in Chicago. The other lives in Del Mar and works as an ER nurse.',
     },
     {
-      name: 'Krista',
+      name: 'Krista Allam',
       role: 'Church Administrator',
       image: '/Krista.jpg',
       bio: 'Krista serves as our church administrator, ensuring the smooth operation of our ministry. She coordinates events, manages communications, and supports the staff and congregation with care and efficiency.',

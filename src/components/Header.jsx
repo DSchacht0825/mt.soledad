@@ -46,7 +46,6 @@ const Header = () => {
         { name: 'About Us', path: '/about' },
         { name: 'Leadership', path: '/leadership' },
         { name: 'Sermons', path: 'https://www.youtube.com/playlist?list=PLQOYCKRqz75Ca-QHE34xs2OGe7vWujHkp', external: true },
-        { name: 'Pastoral Search', path: '/pastoral-search' },
         { name: 'Why We Give', path: '/why-we-give' },
       ]
     },
@@ -55,7 +54,7 @@ const Header = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
-  const isAboutActive = location.pathname === '/about' || location.pathname === '/leadership' || location.pathname === '/pastoral-search' || location.pathname === '/why-we-give';
+  const isAboutActive = location.pathname === '/about' || location.pathname === '/leadership' || location.pathname === '/why-we-give';
 
   return (
     <motion.header

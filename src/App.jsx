@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
-import PastoralSearch from './pages/PastoralSearch';
 import Ministries from './pages/Ministries';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
@@ -19,7 +18,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/leadership" element={<Leadership />} />
-          <Route path="/pastoral-search" element={<PastoralSearch />} />
           <Route path="/ministries" element={<Ministries />} />
           <Route path="/events" element={<Events />} />
           <Route path="/contact" element={<Contact />} />
