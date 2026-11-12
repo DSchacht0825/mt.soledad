@@ -177,6 +177,24 @@ const Home = () => {
         </motion.div>
       </section>
 
+      {/* Installation Service Section */}
+      <section className="section-container bg-white">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
+            <img
+              src="/Installation graphic.png"
+              alt="The Installation of the Rev. Dr. Markus Watson — a worship service of the Presbytery of San Diego, Sunday, November 15, 2pm, at Mount Soledad Presbyterian Church"
+              className="w-full h-auto"
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Quick Info Section */}
       <section className="section-container bg-gray-50">
         <div className="grid md:grid-cols-3 gap-8">
